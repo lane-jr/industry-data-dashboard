@@ -9,31 +9,47 @@ FIELDS = [
 ]
 
 
-def fetch_fdic_data(limit: int = 10000) -> pd.DataFrame:
+def fetch_fdic_data() -> pd.DataFrame:
     print("Fetching FDIC bank financial data...")
 
-    params = {
-        "filters":    "REPDTE:[20100101 TO 99991231]",
-        "fields":     ",".join(FIELDS),
-        "limit":      limit,
-        "offset":     0,
-        "sort_by":    "REPDTE",
-        "sort_order": "ASC",
-        "output":     "json",
-    }
+    all_records = []
+    limit = 10000
+    offset = 0
 
-    response = requests.get(BASE_URL, params=params)
-    response.raise_for_status()
+    while True:
+        print(f"  Fetching rows {offset} to {offset + limit}...")
 
-    data = response.json()
-    records = [item["data"] for item in data.get("data", [])]
+        params = {
+            "filters":    "REPDTE:[20100101 TO 99991231]",
+            "fields":     ",".join(FIELDS),
+            "limit":      limit,
+            "offset":     offset,
+            "sort_by":    "REPDTE",
+            "sort_order": "ASC",
+            "output":     "json",
+        }
 
-    if not records:
+        response = requests.get(BASE_URL, params=params)
+        response.raise_for_status()
+
+        data = response.json()
+        records = [item["data"] for item in data.get("data", [])]
+
+        if not records:
+            break  # no more data left
+
+        all_records.extend(records)
+        offset += limit
+
+        # stop if we got less than a full page
+        if len(records) < limit:
+            break
+
+    if not all_records:
         raise ValueError("No data returned from FDIC API")
 
-    df = pd.DataFrame(records)
-    print("Columns from API:", df.columns.tolist())
-    print(f"  ✓ {len(df)} records fetched")
+    df = pd.DataFrame(all_records)
+    print(f"  ✓ {len(df)} total records fetched")
     return df
 
 
