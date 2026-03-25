@@ -248,7 +248,6 @@ with chart_col2:
         coloraxis_colorbar=dict(title="Rate")
     )
 
-    #st.plotly_chart(fig2, use_container_width=True, key ="choropleth")
     st.caption("Insight: southern and midwestern states show higher average charge-off rates across the period.")
 
     fig2.update_layout(
@@ -262,7 +261,7 @@ with chart_col2:
 
 
 
-    # ── Charts Row 2 ───────────────────────────────────────────────────────────────
+# ── Charts Row 2 ───────────────────────────────────────────────────────────────
 st.divider()
 chart_col3, chart_col4 = st.columns(2)
 
@@ -342,3 +341,4 @@ st.info(
     "credit stress scores, while rising rate environments compress net interest margins "
     "across all bank sizes."
 )
+
