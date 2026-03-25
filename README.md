@@ -70,6 +70,3 @@ python src/ingest/fdic.py
 ```bash
 pytest tests/ -v
 ```
-
-## Live Demo
-*Coming soon — deploying to Streamlit Community Cloud*
