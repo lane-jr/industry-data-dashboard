@@ -1,5 +1,7 @@
 # Fintech Credit Risk Dashboard
 
+[![CI](https://github.com/lane-jr/industry-data-dashboard/actions/workflows/ci.yml/badge.svg)](https://github.com/lane-jr/industry-data-dashboard/actions/workflows/ci.yml)
+
 An interactive data dashboard tracking credit risk indicators across US banks and macroeconomic conditions. Built as a portfolio project targeting fintech and lending companies.
 
 ## Problem Statement
