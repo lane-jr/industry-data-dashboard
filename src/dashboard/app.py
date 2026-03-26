@@ -223,9 +223,6 @@ with chart_col2:
         "Vermont": "VT", "Virginia": "VA", "Washington": "WA", "West Virginia": "WV",
         "Wisconsin": "WI", "Wyoming": "WY", "District of Columbia": "DC"
     }
-
-    #state_df = filtered_df.groupby("state")["charge_off_rate"].mean().reset_index()
-
     state_df = filtered_df.groupby("state")["charge_off_rate"].mean().reset_index()
     state_df.columns = ["state", "avg_charge_off_rate"]
     state_df["state_code"] = state_df["state"].str.title().map(state_abbrev)
