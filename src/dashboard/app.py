@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 st.title("Fintech Credit Risk Dashboard")
-#st.caption("Loan delinquency, charge-off trends, and bank health across the US (2010–present)")
+st.caption("Loan delinquency, charge-off trends, and bank health across the US (2010–present)")
 
 # ── Data loading ───────────────────────────────────────────────────────────────
 @st.cache_data
@@ -245,7 +245,7 @@ with chart_col2:
         coloraxis_colorbar=dict(title="Rate")
     )
 
-    st.caption("Insight: southern and midwestern states show higher average charge-off rates across the period.")
+    #st.caption("Insight: southern and midwestern states show higher average charge-off rates across the period.")
 
     fig2.update_layout(
         height=340,
