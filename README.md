@@ -15,7 +15,7 @@ Credit risk is the core challenge of any lending business. This dashboard surfac
 - [FDIC BankFind API](https://banks.data.fdic.gov/docs/) — bank-level financial data for ~4,500 US institutions
 - [FRED API](https://fred.stlouisfed.org/docs/api/fred/) — Federal Reserve macroeconomic indicators (delinquency rates, federal funds rate, unemployment)
 
-## KPIs
+## Key Performance Indicators
 - Loan delinquency rate over time
 - Charge-off rate by bank and region
 - Net interest margin vs federal funds rate
